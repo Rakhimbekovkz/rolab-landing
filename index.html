@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Робототехника для детей онлайн — 3D-принтер на дом | Shanyraq · RoLab</title>
+<meta name="description" content="Онлайн-робототехника для детей 1–11 класс: 3D-принтер на дом, 350+ проектов и наставник. Бесплатный пробный урок. Рассрочка Kaspi.">
+<meta property="og:title" content="Робототехника для детей онлайн — 3D-принтер на дом">
+<meta property="og:description" content="Ребёнок соберёт 32 устройства за год и заберёт 3D-принтер навсегда. Бесплатный урок.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- ===== ПИКСЕЛИ (вставить свои ID): Meta Pixel + Google gtag. Событие Lead шлём после квиза (см. script). ===== -->
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#042CF7;--blue2:#2540ff;--sky:#53B4FF;--ink:#12152b;--gray:#5B6470;
+  --tint:#EEF2FF;--line:#E4E9F5;
+  --violet:#6D5CE7;--teal:#0EA372;--amber:#F59E0B;--rose:#E1315B;--wa:#25D366;
+  --wrap:1080px;
+}
+html{font-family:Inter,system-ui,sans-serif;color:var(--ink);line-height:1.5;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:#fff;overflow-x:hidden}
+h1,h2,h3,.mk,.big{font-family:Montserrat,sans-serif}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.center{text-align:center}
+section{padding:clamp(46px,7vw,68px) 0}
+section.tint{background:linear-gradient(180deg,#f5f8ff,#eef2ff)}
+
+/* section header — единая красивая иерархия */
+.shead{text-align:center;max-width:720px;margin:0 auto 8px}
+.eye{display:inline-block;font-family:Montserrat;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:6px 15px;border-radius:30px;background:var(--tint);color:var(--blue)}
+.eye.v{background:#efeaff;color:var(--violet)} .eye.t{background:#e1f7ef;color:var(--teal)}
+.eye.am{background:#fff3dd;color:#c47c00} .eye.rs{background:#ffe8ee;color:var(--rose)} .eye.sk{background:#e5f4ff;color:#0E8CE0}
+h2.sec{font-size:clamp(26px,4.6vw,38px);font-weight:900;line-height:1.1;margin:14px 0 10px}
+.subh{color:var(--gray);font-size:16px;max-width:560px;margin:0 auto}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--blue);color:#fff;font-family:Montserrat;font-weight:700;font-size:16px;padding:15px 26px;border-radius:12px;cursor:pointer;border:none;box-shadow:0 8px 22px rgba(4,44,247,.28);transition:transform .12s,box-shadow .12s;text-align:center}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(4,44,247,.36)}
+.btn.wa{background:var(--wa);box-shadow:none}
+.btn.g{background:#fff;color:var(--blue);border:2px solid var(--blue);box-shadow:none}
+.btn.ghost{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.55);box-shadow:none}
+.btn.wide{width:100%}
+/* ГЛАВНАЯ кнопка — крупная, тёплый акцент, свечение-пульс */
+.btn.cta{background:linear-gradient(135deg,#FFB020,#FF7A2F);color:#2a1400;font-size:19px;font-weight:800;padding:19px 38px;border-radius:14px;box-shadow:0 10px 28px rgba(255,132,30,.5);animation:pulse 2.2s infinite}
+.btn.cta:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(255,132,30,.62)}
+@keyframes pulse{0%,100%{box-shadow:0 10px 28px rgba(255,132,30,.5)}50%{box-shadow:0 12px 40px rgba(255,132,30,.85)}}
+.reassure{margin-top:12px;font-size:13px;color:#eaf1ff;font-weight:600;display:flex;gap:14px;flex-wrap:wrap}
+.reassure span{display:flex;align-items:center;gap:6px}
+
+/* photo placeholder */
+.ph{background:repeating-linear-gradient(45deg,#eef2ff,#eef2ff 12px,#e6ecff 12px,#e6ecff 24px);border:2px dashed #b9c6ff;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#6b78b5;text-align:center;padding:18px;min-height:180px}
+.ph .i{font-size:30px}.ph .l{font-size:13px;font-weight:600;max-width:88%}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(160%) blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;height:64px}
+.lg{display:flex;align-items:center;gap:10px;font-family:Montserrat;font-weight:800;font-size:17px}
+.lg .m{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900}
+.nav .sp{margin-left:auto}.nav .btn{padding:11px 20px;font-size:14px}
+@media(max-width:560px){.nav .lg span.t{display:none}}
+
+/* hero */
+.hero{background:linear-gradient(135deg,#042CF7,#3b2fff 60%,#5b34e6);color:#fff;position:relative;overflow:hidden}
+.hero .glow{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(83,180,255,.45),transparent 70%);top:-160px;right:-120px;pointer-events:none}
+.hero .hash{position:absolute;right:-40px;bottom:-90px;font-family:Montserrat;font-weight:900;font-size:clamp(200px,40vw,340px);color:rgba(255,255,255,.06);line-height:1;pointer-events:none}
+.hero .grid{display:grid;grid-template-columns:1.08fr .92fr;gap:34px;align-items:center;padding:clamp(36px,6vw,58px) 0;position:relative;z-index:2}
+.hero .eye{background:rgba(255,255,255,.16);color:#eaf1ff}
+.hero h1{font-size:clamp(30px,5vw,46px);font-weight:900;line-height:1.06;margin:16px 0 14px}
+.hero h1 em{font-style:normal;color:#7CF0C0}
+.hero p.sub{color:#dbe6ff;font-size:clamp(16px,2vw,19px);line-height:1.5;max-width:520px}
+.hero .cta-row{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;align-items:center}
+.trust{display:flex;gap:10px 22px;flex-wrap:wrap;margin-top:28px}
+.trust div{font-size:13px;color:#eaf1ff;font-weight:600;display:flex;align-items:center;gap:7px}
+.trust .d{width:6px;height:6px;border-radius:50%;background:#7CF0C0;flex:none}
+.hero .heroimg .ph{min-height:320px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.35);color:#dbe6ff}
+@media(max-width:820px){.hero .grid{grid-template-columns:1fr;gap:22px}.hero .heroimg{order:-1}}
+
+/* pain */
+.pain{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.painc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:15.5px;font-weight:500;display:flex;gap:12px;align-items:flex-start;text-align:left;box-shadow:0 3px 14px rgba(20,30,80,.04)}
+.painc .x{color:var(--rose);font-size:18px;font-weight:900;flex:none}
+.bridge{margin-top:24px;background:linear-gradient(120deg,var(--ink),#20244a);color:#fff;border-radius:16px;padding:20px 24px;font-size:clamp(16px,2.4vw,19px);font-weight:600;text-align:center}
+@media(max-width:640px){.pain{grid-template-columns:1fr}}
+
+/* formula — ОДИН красивый блок с градиентной обводкой */
+.formula{display:inline-flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:center;margin:24px auto 0;padding:16px 26px;border-radius:18px;
+  background:linear-gradient(#fff,#fff) padding-box,linear-gradient(120deg,var(--blue),var(--sky),var(--violet)) border-box;
+  border:2px solid transparent;box-shadow:0 12px 30px rgba(4,44,247,.12)}
+.formula .it{font-family:Montserrat;font-weight:700;font-size:15px;color:var(--ink)}
+.formula .plus{color:var(--sky);font-weight:900;font-size:18px}
+
+/* cards */
+.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:16px;margin-top:28px}
+.c4{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 4px 18px rgba(4,44,247,.05);transition:transform .15s,box-shadow .15s}
+.c4:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(4,44,247,.12)}
+.c4 .ic{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:24px}
+.ic.b{background:#e6ecff;color:var(--blue)} .ic.v{background:#efeaff;color:var(--violet)}
+.ic.t{background:#e1f7ef;color:var(--teal)} .ic.am{background:#fff3dd;color:#c47c00}
+.c4 h3{font-size:18px;font-weight:800;margin:12px 0 6px}
+.c4 p{font-size:14px;color:var(--gray);line-height:1.5}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:28px}
+.step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 20px;text-align:center}
+.step .n{width:44px;height:44px;margin:0 auto 12px;border-radius:50%;color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:18px}
+.step:nth-child(1) .n{background:linear-gradient(135deg,var(--blue),var(--sky))}
+.step:nth-child(2) .n{background:linear-gradient(135deg,var(--violet),#a78bfa)}
+.step:nth-child(3) .n{background:linear-gradient(135deg,var(--teal),#34d399)}
+.step h3{font-size:17px;font-weight:800}.step p{font-size:13.5px;color:var(--gray);margin-top:6px}
+
+/* program */
+.tracks{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.track{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+.track.hot{border:2px solid var(--violet);box-shadow:0 12px 30px rgba(109,92,231,.15)}
+.track .tb{display:inline-block;font-family:Montserrat;font-weight:800;font-size:13px;padding:6px 14px;border-radius:20px;color:#fff;margin-bottom:12px}
+.tb.b{background:linear-gradient(135deg,var(--blue),var(--sky))}
+.tb.v{background:linear-gradient(135deg,var(--violet),#a78bfa)}
+.track p{font-size:14px;color:var(--gray);line-height:1.5}
+@media(max-width:640px){.tracks{grid-template-columns:1fr}}
+.modtitle{text-align:center;margin-top:30px;font-family:Montserrat;font-weight:800;color:var(--violet);font-size:13px;text-transform:uppercase;letter-spacing:.6px}
+.modgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:12px;margin-top:16px}
+.mod{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px;transition:.15s}
+.mod:hover{border-color:var(--sky);box-shadow:0 6px 18px rgba(4,44,247,.08)}
+.mod .mn{width:30px;height:30px;flex:none;border-radius:8px;background:var(--tint);color:var(--blue);font-family:Montserrat;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.mod .mt{font-size:13.5px;font-weight:600;line-height:1.3}
+.pstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:26px;text-align:center}
+.pstat{background:linear-gradient(180deg,#f5f8ff,#eef2ff);border-radius:14px;padding:20px}
+.pstat b{display:block;font-family:Montserrat;font-size:28px;font-weight:900;color:var(--blue)}
+.pstat span{font-size:13px;color:var(--gray)}
+
+/* proof */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:28px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 16px;text-align:center}
+.stat .big{font-size:clamp(24px,4vw,30px);font-weight:900}.stat .lb{font-size:12px;color:var(--gray);margin-top:4px}
+.stat:nth-child(1) .big{color:var(--blue)}.stat:nth-child(2) .big{color:var(--violet)}
+.stat:nth-child(3) .big{color:var(--teal)}.stat:nth-child(4) .big{color:var(--amber)}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:18px}
+
+/* table */
+.tblwrap{overflow-x:auto;margin-top:28px}
+table{width:100%;min-width:520px;border-collapse:separate;border-spacing:0;border-radius:14px;overflow:hidden;box-shadow:0 6px 24px rgba(4,44,247,.08);font-size:15px}
+th{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;padding:14px;text-align:center;font-size:14px}
+th:first-child{text-align:left}
+td{padding:13px 16px;border-bottom:1px solid var(--line);text-align:center}
+td:first-child{text-align:left;font-weight:700;color:var(--gray);font-size:13px}
+td.no{color:#b3402f}td.yes{color:var(--teal);font-weight:700}
+tr:nth-child(even) td{background:var(--tint)}
+
+/* tariffs */
+.tar{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:16px;margin-top:28px;align-items:stretch}
+.tarc{background:#fff;border:2px solid var(--line);border-radius:18px;padding:26px 24px;display:flex;flex-direction:column}
+.tarc.hot{border-color:var(--blue);box-shadow:0 16px 36px rgba(4,44,247,.18);position:relative;transform:translateY(-6px)}
+.tarc.hot .flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#FFB020,#FF7A2F);color:#2a1400;font-size:12px;font-weight:800;padding:6px 16px;border-radius:20px;white-space:nowrap;box-shadow:0 6px 16px rgba(255,132,30,.4)}
+.tarc h3{font-size:22px;font-weight:900}
+.tarc .d{font-size:13px;color:var(--gray);margin:6px 0 14px}
+.tarc ul{list-style:none;font-size:14px;display:flex;flex-direction:column;gap:9px;flex:1}
+.tarc ul li:before{content:"✓ ";color:var(--teal);font-weight:900}
+.tarc .btn{margin-top:20px}
+.kaspi{margin-top:26px;background:linear-gradient(120deg,#0a1533,#181d44);color:#fff;border-radius:18px;padding:24px 28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.kaspi .p{font-size:clamp(24px,4vw,32px);font-weight:900;font-family:Montserrat;color:#7CF0C0}.kaspi .t{font-size:14px;color:#cdd6ff}
+.kaspi .sp{margin-left:auto}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:28px}
+.tm{text-align:center}.tm .ph{min-height:170px}.tm h3{font-size:16px;font-weight:800;margin-top:12px}.tm p{font-size:13px;color:var(--gray)}
+
+/* faq */
+.faq{margin-top:26px;display:flex;flex-direction:column;gap:10px;max-width:800px;margin-left:auto;margin-right:auto}
+.fq{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.fq summary{font-family:Montserrat;font-weight:800;font-size:16px;padding:16px 20px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.fq summary::-webkit-details-marker{display:none}
+.fq summary:after{content:"+";color:var(--blue);font-size:24px;font-weight:700;flex:none}
+.fq[open] summary:after{content:"–"}
+.fq .a{font-size:14px;color:var(--gray);padding:0 20px 16px;line-height:1.55}
+
+/* final */
+.final{background:linear-gradient(135deg,#042CF7,#5b34e6);color:#fff;border-radius:24px;padding:clamp(30px,5vw,48px);text-align:center;position:relative;overflow:hidden}
+.final .glow{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(124,240,192,.3),transparent 70%);bottom:-160px;left:-100px}
+.final h2{font-size:clamp(25px,4vw,32px);font-weight:900;position:relative}
+.final p{color:#dbe6ff;font-size:16px;max-width:520px;margin:10px auto 0;position:relative}
+.final .cta{margin-top:26px;position:relative}
+
+/* footer */
+footer{background:var(--ink);color:#aeb6d0;padding:32px 0;font-size:13px}
+footer .wrap{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+footer .lg{color:#fff}
+footer a:hover{color:#fff}
+
+/* whatsapp float */
+.wafloat{position:fixed;right:18px;bottom:18px;z-index:40;width:56px;height:56px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+
+/* ===== QUIZ MODAL ===== */
+.qz{position:fixed;inset:0;z-index:100;background:rgba(10,14,40,.62);display:none;align-items:center;justify-content:center;padding:16px}
+.qz.on{display:flex}
+.qzbox{background:#fff;border-radius:22px;width:100%;max-width:520px;max-height:92vh;overflow:auto;padding:28px}
+.qztop{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.qzbar{flex:1;height:8px;background:var(--tint);border-radius:5px;overflow:hidden}
+.qzbar i{display:block;height:100%;width:16%;background:linear-gradient(90deg,var(--blue),var(--sky));border-radius:5px;transition:width .3s}
+.qzx{cursor:pointer;color:var(--gray);font-size:24px;line-height:1;border:none;background:none}
+.qzstep{display:none}.qzstep.on{display:block}
+.qzq{font-family:Montserrat;font-weight:800;font-size:20px;margin-bottom:16px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{border:2px solid var(--line);border-radius:12px;padding:14px 16px;font-size:15px;font-weight:600;cursor:pointer;transition:.12s}
+.opt:hover{border-color:var(--sky);background:#f7fbff}.opt.sel{border-color:var(--blue);background:var(--tint)}
+.qzin{width:100%;border:2px solid var(--line);border-radius:12px;padding:14px 16px;font-size:15px;font-family:inherit;margin-bottom:10px}
+.qzin:focus{outline:none;border-color:var(--blue)}
+.qznav{display:flex;gap:10px;margin-top:16px}
+.qzback{background:none;border:none;color:var(--gray);font-weight:600;cursor:pointer;font-size:14px}
+.qzthanks{text-align:center;padding:20px 0}
+.qzthanks .em{font-size:52px}.qzthanks h3{font-family:Montserrat;font-size:24px;font-weight:900;margin:10px 0}
+.qzthanks p{color:var(--gray)}
+.err{color:#c0392b;font-size:13px;margin-bottom:8px;display:none}
+</style>
+</head>
+<body>
+
+<header><div class="wrap nav">
+  <div class="lg"><span class="m">#</span><span class="t">SHANYRAQ · RoLab</span></div>
+  <span class="sp"></span>
+  <button class="btn js-quiz">Бесплатный урок</button>
+</div></header>
+
+<!-- HERO -->
+<div class="hero"><div class="glow"></div><div class="hash">#</div><div class="wrap"><div class="grid">
+  <div>
+    <span class="eye">Онлайн-робототехника · 1–11 класс</span>
+    <h1>Ребёнок соберёт 32 робота за год — и заберёт <em>3D-принтер навсегда</em></h1>
+    <p class="sub">Инженерная лаборатория дома: принтер, 350+ проектов и личный наставник. Онлайн, в любом городе.</p>
+    <div class="cta-row"><button class="btn cta js-quiz">Пройти тест — записаться на урок →</button><a class="btn ghost" href="https://wa.me/77070555666" target="_blank">WhatsApp</a></div>
+    <div class="reassure"><span>🎁 Бесплатно</span><span>⏱ 30 минут</span><span>✓ Без обязательств</span></div>
+    <div class="trust">
+      <div><span class="d"></span>Forbes «30 до 30»</div>
+      <div><span class="d"></span>$25 000 от Павла Дурова</div>
+      <div><span class="d"></span>Чемпионы FIRST</div>
+      <div><span class="d"></span>Лучший EdTech Евразии 2025</div>
+    </div>
+  </div>
+  <div class="heroimg"><div class="ph"><span class="i">📷</span><span class="l">ФОТО: казахский мальчик ~10 лет у 3D-принтера, эмоция восторга</span></div></div>
+</div></div></div>
+
+<!-- PAIN -->
+<section><div class="wrap">
+  <div class="shead"><span class="eye rs">Знакомо?</span><h2 class="sec">Если хоть одно — вам к нам</h2></div>
+  <div class="pain">
+    <div class="painc"><span class="x">✕</span>Ребёнок часами в телефоне, а увлечь нечем</div>
+    <div class="painc"><span class="x">✕</span>Хотите готовить его к профессиям будущего</div>
+    <div class="painc"><span class="x">✕</span>Кружки далеко, дорого и непонятно, что там</div>
+    <div class="painc"><span class="x">✕</span>Ребёнок способный — но негде раскрыться</div>
+  </div>
+  <div class="bridge">Есть формат, где ребёнок сам создаёт устройства — и это увлекает сильнее игр</div>
+</div></section>
+
+<!-- SOLUTION -->
+<section class="tint"><div class="wrap center">
+  <div class="shead"><span class="eye v">Решение</span><h2 class="sec">Лаборатория — у вас дома</h2></div>
+  <div class="formula">
+    <span class="it">3D-принтер</span><span class="plus">+</span>
+    <span class="it">Электроника</span><span class="plus">+</span>
+    <span class="it">Платформа CyberPack AI</span><span class="plus">+</span>
+    <span class="it">Наставник</span><span class="plus">+</span>
+    <span class="it">Куратор</span>
+  </div>
+  <p class="subh" style="margin-top:20px">Ребёнок печатает детали и собирает реальные устройства. За год — 32 проекта и участие в соревнованиях. Принтер остаётся навсегда.</p>
+  <div style="margin-top:24px" class="ph"><span class="i">📷</span><span class="l">ФОТО/КОЛЛАЖ: устройства учеников (умный дом, пианино) + ребёнок-казах за работой</span></div>
+</div></section>
+
+<!-- WHAT -->
+<section><div class="wrap">
+  <div class="shead"><span class="eye">Что внутри</span><h2 class="sec">Всё включено</h2></div>
+  <div class="g4">
+    <div class="c4"><div class="ic b">🖨️</div><h3>Оборудование навсегда</h3><p>3D-принтер Bambu Lab A1, электроника и пластик. Настоящая техника — остаётся у ребёнка.</p></div>
+    <div class="c4"><div class="ic v">💻</div><h3>Платформа CyberPack AI</h3><p>350+ проектов, курсы и AI-ассистент 24/7. Автоотчёты для родителя.</p></div>
+    <div class="c4"><div class="ic t">👨‍🏫</div><h3>Наставник + куратор</h3><p>Живые сессии каждую неделю. Группа до 10 человек.</p></div>
+    <div class="c4"><div class="ic am">🏆</div><h3>Результат за год</h3><p>32 проекта, портфолио и 4 соревнования.</p></div>
+  </div>
+</div></section>
+
+<!-- HOW -->
+<section class="tint"><div class="wrap">
+  <div class="shead"><span class="eye t">Как учимся</span><h2 class="sec">3 дня в неделю — под ритм ребёнка</h2></div>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>День печати</h3><p>Выбирает проект и отправляет на принтер</p></div>
+    <div class="step"><div class="n">2</div><h3>День сборки</h3><p>Собирает работающее устройство</p></div>
+    <div class="step"><div class="n">3</div><h3>Сессия с наставником</h3><p>Показывает результат, получает план</p></div>
+  </div>
+  <p class="subh center" style="margin-top:20px">Родитель не нужен в процессе — наставник и куратор ведут ребёнка сами.</p>
+</div></section>
+
+<!-- PROGRAM -->
+<section><div class="wrap">
+  <div class="shead"><span class="eye v">Программа</span><h2 class="sec">12 модулей за год — от алгоритмов до AI-агентов</h2><p class="subh">Адаптируется под возраст: свой трек для 1–4 и для 5–11 классов</p></div>
+  <div class="tracks">
+    <div class="track"><span class="tb b">Junior · 1–4 класс</span><p>Мягкий вход в инженерию: алгоритмическое мышление, первые 3D-модели и сборка простых устройств в игровом формате.</p></div>
+    <div class="track hot"><span class="tb v">Expert · 5–11 класс</span><p>Полный инженерный трек: 3D-печать, Fusion 360, электроника, AI-инструменты, свои AI-агенты и защита научного проекта.</p></div>
+  </div>
+  <div class="modtitle">Маршрут Expert · 5–11 класс</div>
+  <div class="modgrid">
+    <div class="mod"><span class="mn">1</span><span class="mt">Алгоритмы и блочное программирование</span></div>
+    <div class="mod"><span class="mn">2</span><span class="mt">Основы 3D-печати</span></div>
+    <div class="mod"><span class="mn">3</span><span class="mt">3D-моделирование в Tinkercad</span></div>
+    <div class="mod"><span class="mn">4</span><span class="mt">Инженерное проектирование в Fusion 360 + AI</span></div>
+    <div class="mod"><span class="mn">5</span><span class="mt">Электроника в Tinkercad</span></div>
+    <div class="mod"><span class="mn">6</span><span class="mt">Контрольный инженерный проект</span></div>
+    <div class="mod"><span class="mn">7</span><span class="mt">AI Tools — работа с нейросетями</span></div>
+    <div class="mod"><span class="mn">8</span><span class="mt">Prompt Engineering</span></div>
+    <div class="mod"><span class="mn">9</span><span class="mt">AI Agents — свои AI-помощники</span></div>
+    <div class="mod"><span class="mn">10</span><span class="mt">UI/UX Design & Pitching</span></div>
+    <div class="mod"><span class="mn">11</span><span class="mt">Science Project</span></div>
+    <div class="mod"><span class="mn">12</span><span class="mt">Финальный Science Project + защита</span></div>
+  </div>
+  <div class="pstats">
+    <div class="pstat"><b>12</b><span>модулей за год</span></div>
+    <div class="pstat"><b>24</b><span>вебинара с экспертами CyberPack AI в год</span></div>
+    <div class="pstat"><b>2</b><span>Science Project + портфолио для вузов</span></div>
+  </div>
+</div></section>
+
+<!-- PROOF -->
+<section class="tint"><div class="wrap">
+  <div class="shead"><span class="eye am">Доказательства</span><h2 class="sec">Ученики побеждают в мире</h2></div>
+  <div class="stats">
+    <div class="stat"><div class="big">7 из 11</div><div class="lb">команд — чемпионы FIRST</div></div>
+    <div class="stat"><div class="big">Хьюстон</div><div class="lb">финал FIRST, США</div></div>
+    <div class="stat"><div class="big">UCL</div><div class="lb">+ Birmingham, Binghamton</div></div>
+    <div class="stat"><div class="big">4+</div><div class="lb">соревнования в год</div></div>
+  </div>
+  <div class="reviews">
+    <div class="ph"><span class="i">🎥</span><span class="l">ВИДЕО-ОТЗЫВ мамы (казашка) + фото ребёнка</span></div>
+    <div class="ph"><span class="i">💬</span><span class="l">ОТЗЫВ родителя (скрин WhatsApp) + фото проекта</span></div>
+    <div class="ph"><span class="i">📷</span><span class="l">ФОТО ученика-казаха с кубком на соревновании</span></div>
+  </div>
+  <p class="subh center" style="margin-top:14px;font-size:13px">NASA Space Challenge · World Robotics Olympiad · ICRC</p>
+</div></section>
+
+<!-- VS -->
+<section><div class="wrap">
+  <div class="shead"><span class="eye sk">Сравнение</span><h2 class="sec">Лучше офлайн-кружка</h2></div>
+  <div class="tblwrap"><table>
+    <tr><th>Критерий</th><th>Офлайн-кружок</th><th>RoLab Online</th></tr>
+    <tr><td>Цена в год</td><td class="no">840к – 1,44 млн ₸</td><td class="yes">от 150к ₸</td></tr>
+    <tr><td>Принтер</td><td class="no">общий, в очередь</td><td class="yes">свой, навсегда</td></tr>
+    <tr><td>Логистика</td><td class="no">возить в любую погоду</td><td class="yes">дома, когда удобно</td></tr>
+    <tr><td>Группа</td><td class="no">15–20 детей</td><td class="yes">до 10</td></tr>
+    <tr><td>Контроль</td><td class="no">не видно, что происходит</td><td class="yes">автоотчёты + куратор</td></tr>
+    <tr><td>Соревнования</td><td class="no">сам разбирайся</td><td class="yes">помогаем с заявкой</td></tr>
+  </table></div>
+</div></section>
+
+<!-- TARIFFS -->
+<section class="tint"><div class="wrap">
+  <div class="shead"><span class="eye">Тарифы</span><h2 class="sec">Выберите тариф</h2><p class="subh">Принтер входит в два из трёх</p></div>
+  <div class="tar">
+    <div class="tarc"><h3>Лаборант</h3><div class="d">Если принтер уже есть</div><ul><li>Платформа CyberPack AI</li><li>Наставник + куратор</li><li>Помощь с соревнованиями</li></ul><button class="btn g js-quiz">Узнать цену</button></div>
+    <div class="tarc hot"><div class="flag">★ Самый популярный</div><h3>Инженер</h3><div class="d">Всё включено + оборудование</div><ul><li>Всё из «Лаборанта»</li><li>3D-принтер — навсегда</li><li>Электроника + пластик</li><li>Техподдержка и замена</li></ul><button class="btn js-quiz">Узнать цену</button></div>
+    <div class="tarc"><h3>Исследователь</h3><div class="d">Максимум и соревнования</div><ul><li>Всё из «Инженера»</li><li>Сопровождение на турнирах</li><li>Доп. занятия + пластик на год</li></ul><button class="btn g js-quiz">Узнать цену</button></div>
+  </div>
+  <div class="kaspi"><div><div class="p">от 20 416 ₸/мес</div><div class="t">Kaspi рассрочка 0-0-24 — без первого взноса и переплаты</div></div><span class="sp"></span><button class="btn cta js-quiz" style="animation:none">Зафиксировать цену</button></div>
+</div></section>
+
+<!-- TEAM -->
+<section><div class="wrap">
+  <div class="shead"><span class="eye v">Команда</span><h2 class="sec">Учат чемпионы мира</h2></div>
+  <div class="team">
+    <div class="tm"><div class="ph"><span class="i">📷</span><span class="l">ФОТО тренера (казах)</span></div><h3>Бекзат Инкаров</h3><p>4-кратный чемпион мира</p></div>
+    <div class="tm"><div class="ph"><span class="i">📷</span><span class="l">ФОТО тренера (казах)</span></div><h3>Куаныш Магауин</h3><p>Первый Apple-тренер в Казахстане</p></div>
+    <div class="tm"><div class="ph"><span class="i">📷</span><span class="l">ФОТО команды тренеров</span></div><h3>Тренеры-победители</h3><p>Central Asia · Dubai FIRST · China WRCF</p></div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="tint"><div class="wrap">
+  <div class="shead"><span class="eye t">Вопросы</span><h2 class="sec">Отвечаем честно</h2></div>
+  <div class="faq">
+    <details class="fq"><summary>Дорого?</summary><div class="a">Принтер навсегда + наставник + соревнования за год. Дешевле кружка, где ничего не остаётся. Есть рассрочка Kaspi от 20 416 ₸/мес.</div></details>
+    <details class="fq"><summary>Ребёнок не технарь — подойдёт?</summary><div class="a">Именно для таких и создано. Начинаем с нуля, первый успех — уже в первый день.</div></details>
+    <details class="fq"><summary>Мы не разберёмся с принтером</summary><div class="a">Bambu Lab «включил и забыл»: 30 минут до первой детали, техподдержка онлайн, замена при браке.</div></details>
+    <details class="fq"><summary>Мы из другого города</summary><div class="a">Всё онлайн, оборудование привозим курьером в любой город Казахстана.</div></details>
+    <details class="fq"><summary>А если ребёнок бросит?</summary><div class="a">Куратор держит в тонусе, живые сессии с группой, быстрый видимый результат. Дети сами просят продолжать.</div></details>
+  </div>
+</div></section>
+
+<!-- FINAL CTA -->
+<section><div class="wrap"><div class="final"><div class="glow"></div>
+  <h2>Запишитесь на бесплатный урок</h2>
+  <p>30 минут онлайн: покажем платформу и определим уровень ребёнка. Без обязательств.</p>
+  <button class="btn cta js-quiz">Пройти тест — записаться →</button>
+</div></div></section>
+
+<footer><div class="wrap">
+  <span class="lg mk"># SHANYRAQ STUDY · RoLab</span>
+  <a href="#">Договор-оферта</a><a href="#">Политика конфиденциальности</a>
+  <a href="https://wa.me/77070555666" target="_blank">WhatsApp</a>
+  <span style="margin-left:auto">© 2026 ТОО «Shanyraq Study»</span>
+</div></footer>
+
+<a class="wafloat" href="https://wa.me/77070555666" target="_blank" aria-label="WhatsApp">🟢</a>
+
+<!-- ===== QUIZ MODAL ===== -->
+<div class="qz" id="qz">
+  <div class="qzbox">
+    <div class="qztop"><div class="qzbar"><i id="qzbar"></i></div><button class="qzx" id="qzclose">×</button></div>
+
+    <div class="qzstep on" data-step="0"><div class="qzq">В каком классе ребёнок?</div>
+      <div class="opts" data-key="class"><div class="opt">1–4 класс</div><div class="opt">5–9 класс</div><div class="opt">10–11 класс</div></div></div>
+
+    <div class="qzstep" data-step="1"><div class="qzq">Есть ли дома 3D-принтер?</div>
+      <div class="opts" data-key="printer"><div class="opt">Нет</div><div class="opt">Да</div></div></div>
+
+    <div class="qzstep" data-step="2"><div class="qzq">Что интереснее для ребёнка?</div>
+      <div class="opts" data-key="goal"><div class="opt">Победы на соревнованиях</div><div class="opt">Хобби и развитие</div><div class="opt">Подготовка к будущему</div></div></div>
+
+    <div class="qzstep" data-step="3"><div class="qzq">Ваш город?</div>
+      <div class="opts" data-key="city"><div class="opt">Алматы</div><div class="opt">Астана</div><div class="opt">Шымкент</div><div class="opt">Другой город</div></div></div>
+
+    <div class="qzstep" data-step="4"><div class="qzq">Готовы рассмотреть рассрочку от ~20 000 ₸/мес?</div>
+      <div class="opts" data-key="budget"><div class="opt">Да</div><div class="opt">Возможно</div><div class="opt">Хочу узнать варианты</div></div></div>
+
+    <div class="qzstep" data-step="5"><div class="qzq">Куда прислать детали и подтверждение?</div>
+      <div class="err" id="qzerr">Заполните имя и корректный номер</div>
+      <input class="qzin" id="qzname" placeholder="Ваше имя" autocomplete="name">
+      <input class="qzin" id="qzphone" placeholder="WhatsApp номер" inputmode="tel" autocomplete="tel">
+      <button class="btn wide" id="qzsubmit">Записаться на бесплатный урок</button>
+      <p style="font-size:12px;color:var(--gray);margin-top:10px;text-align:center">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</p></div>
+
+    <div class="qzstep" data-step="6"><div class="qzthanks"><div class="em">🎉</div><h3>Заявка принята!</h3><p>Наставник свяжется с вами в WhatsApp и подберёт удобное время урока.</p></div></div>
+
+    <div class="qznav" id="qznav"><button class="qzback" id="qzback">← Назад</button></div>
+  </div>
+</div>
+
+<script>
+/* ===== НАСТРОЙКИ ИНТЕГРАЦИИ (заполнить) ===== */
+const CONFIG = {
+  // Входящий вебхук Bitrix24: Bitrix24 → Разработчикам → Входящий вебхук → crm.lead.add
+  crmWebhook: '',
+  whatsapp: '77070555666'
+};
+/* ============================================ */
+
+const qz=document.getElementById('qz'), bar=document.getElementById('qzbar'),
+      nav=document.getElementById('qznav'), backBtn=document.getElementById('qzback');
+const steps=[...document.querySelectorAll('.qzstep')];
+let cur=0; const answers={}; const TOTAL=6;
+
+function openQuiz(){qz.classList.add('on');document.body.style.overflow='hidden';go(0);}
+function closeQuiz(){qz.classList.remove('on');document.body.style.overflow='';}
+function go(i){cur=i;steps.forEach(s=>s.classList.toggle('on',+s.dataset.step===i));
+  bar.style.width=Math.min((i/TOTAL)*100,100)+'%';
+  nav.style.display=(i>0&&i<TOTAL)?'flex':'none';}
+
+document.querySelectorAll('.js-quiz').forEach(b=>b.addEventListener('click',openQuiz));
+document.getElementById('qzclose').addEventListener('click',closeQuiz);
+qz.addEventListener('click',e=>{if(e.target===qz)closeQuiz();});
+backBtn.addEventListener('click',()=>{if(cur>0)go(cur-1);});
+
+document.querySelectorAll('.opts').forEach(group=>{
+  group.querySelectorAll('.opt').forEach(opt=>opt.addEventListener('click',()=>{
+    group.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+    opt.classList.add('sel');
+    answers[group.dataset.key]=opt.textContent.trim();
+    setTimeout(()=>go(cur+1),180);
+  }));
+});
+
+document.getElementById('qzsubmit').addEventListener('click',submitLead);
+function submitLead(){
+  const name=document.getElementById('qzname').value.trim();
+  const phone=document.getElementById('qzphone').value.trim();
+  const digits=phone.replace(/\D/g,'');
+  if(name.length<2||digits.length<10){document.getElementById('qzerr').style.display='block';return;}
+  answers.name=name; answers.phone=phone;
+  try{if(window.fbq)fbq('track','Lead');}catch(e){}
+  try{if(window.gtag)gtag('event','generate_lead');}catch(e){}
+  const comment='Класс: '+(answers.class||'')+' | Принтер: '+(answers.printer||'')+
+    ' | Интерес: '+(answers.goal||'')+' | Город: '+(answers.city||'')+' | Рассрочка: '+(answers.budget||'');
+  if(CONFIG.crmWebhook){
+    fetch(CONFIG.crmWebhook,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({fields:{TITLE:'Заявка с лендинга робо — '+name,NAME:name,
+        PHONE:[{VALUE:phone,VALUE_TYPE:'WORK'}],SOURCE_ID:'WEB',COMMENTS:comment}})
+    }).catch(()=>{});
+  }
+  go(6);
+}
+</script>
+</body>
+</html>
