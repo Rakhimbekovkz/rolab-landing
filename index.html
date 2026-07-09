@@ -48,7 +48,7 @@ h2.sec{font-size:clamp(26px,4.6vw,38px);font-weight:900;line-height:1.1;margin:1
 .btn.ghost{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.55);box-shadow:none}
 .btn.wide{width:100%}
 /* ГЛАВНАЯ кнопка — крупная, тёплый акцент, свечение-пульс */
-.btn.cta{background:linear-gradient(135deg,#FFB020,#FF7A2F);color:#2a1400;font-size:19px;font-weight:800;padding:19px 38px;border-radius:14px;box-shadow:0 10px 28px rgba(255,132,30,.5);animation:pulse 2.2s infinite}
+.btn.cta{background:linear-gradient(90deg,#FF7A2F,#FFB020);color:#2a1400;font-size:19px;font-weight:800;padding:19px 38px;border-radius:14px;box-shadow:0 10px 28px rgba(255,132,30,.5);animation:pulse 2.2s infinite}
 .btn.cta:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(255,132,30,.62)}
 @keyframes pulse{0%,100%{box-shadow:0 10px 28px rgba(255,132,30,.5)}50%{box-shadow:0 12px 40px rgba(255,132,30,.85)}}
 .reassure{margin-top:12px;font-size:13px;color:#eaf1ff;font-weight:600;display:flex;gap:14px;flex-wrap:wrap}
@@ -62,7 +62,7 @@ h2.sec{font-size:clamp(26px,4.6vw,38px);font-weight:900;line-height:1.1;margin:1
 header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(160%) blur(8px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;height:64px}
 .lg{display:flex;align-items:center;gap:10px;font-family:Montserrat;font-weight:800;font-size:17px}
-.lg .m{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900}
+.lg .m{width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px;line-height:1;padding-bottom:2px}
 .nav .sp{margin-left:auto}.nav .btn{padding:11px 20px;font-size:14px}
 @media(max-width:560px){.nav .lg span.t{display:none}}
 
@@ -222,7 +222,7 @@ footer a:hover{color:#fff}
 <body>
 
 <header><div class="wrap nav">
-  <div class="lg"><span class="m">#</span><span class="t">SHANYRAQ · RoLab</span></div>
+  <div class="lg"><span class="m">#</span><span class="t">Shanyraq Study x RoLab</span></div>
   <span class="sp"></span>
   <button class="btn js-quiz">Бесплатный урок</button>
 </div></header>
@@ -231,10 +231,10 @@ footer a:hover{color:#fff}
 <div class="hero"><div class="glow"></div><div class="hash">#</div><div class="wrap"><div class="grid">
   <div>
     <span class="eye">Онлайн-робототехника · 1–11 класс</span>
-    <h1>Ребёнок соберёт 60 устройств за год — и заберёт <em>3D-принтер навсегда</em></h1>
-    <p class="sub">Инженерная лаборатория дома: принтер, 350+ проектов и личный наставник. Онлайн, в любом городе.</p>
-    <div class="cta-row"><button class="btn cta js-quiz">Пройти тест — записаться на урок →</button><a class="btn ghost" href="https://wa.me/77070555666" target="_blank">WhatsApp</a></div>
-    <div class="reassure"><span>🎁 Бесплатно</span><span>⏱ 30 минут</span><span>✓ Без обязательств</span></div>
+    <h1>За 1 год — 60 проектов по Робототехнике и первый AI-проект. <em>Сделаем ребёнка инженером с готовым портфолио для ВУЗа!</em></h1>
+    <p class="sub">Домашняя лаборатория с 3D-принтером навсегда и личным наставником. Онлайн в любом городе — от 37 500 ₸/мес по Kaspi.</p>
+    <div class="cta-row"><button class="btn cta js-quiz">Записаться на пробный урок →</button><a class="btn wa" href="https://wa.me/77070555666?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BF%D0%B8%D1%88%D1%83%20%D1%81%20%D0%B2%D0%B0%D1%88%D0%B5%D0%B3%D0%BE%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BE%D0%B1%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD%20%D0%BA%D1%83%D1%80%D1%81%D0%B5%20%D0%A0%D0%BE%D0%B1%D0%BE%D1%82%D0%BE%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8" target="_blank">Написать на WhatsApp</a></div>
+    <div class="reassure"><span>✓ Первый урок бесплатно и без обязательств</span></div>
     <div class="trust">
       <div><span class="d"></span>Forbes «30 до 30»</div>
       <div><span class="d"></span>$25 000 от Павла Дурова</div>
@@ -396,11 +396,11 @@ footer a:hover{color:#fff}
 <footer><div class="wrap">
   <span class="lg mk"># SHANYRAQ STUDY · RoLab</span>
   <a href="#">Договор-оферта</a><a href="#">Политика конфиденциальности</a>
-  <a href="https://wa.me/77070555666" target="_blank">WhatsApp</a>
+  <a href="https://wa.me/77070555666?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BF%D0%B8%D1%88%D1%83%20%D1%81%20%D0%B2%D0%B0%D1%88%D0%B5%D0%B3%D0%BE%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BE%D0%B1%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD%20%D0%BA%D1%83%D1%80%D1%81%D0%B5%20%D0%A0%D0%BE%D0%B1%D0%BE%D1%82%D0%BE%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8" target="_blank">WhatsApp</a>
   <span style="margin-left:auto">© 2026 ТОО «Shanyraq Study»</span>
 </div></footer>
 
-<a class="wafloat" href="https://wa.me/77070555666" target="_blank" aria-label="WhatsApp">🟢</a>
+<a class="wafloat" href="https://wa.me/77070555666?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BF%D0%B8%D1%88%D1%83%20%D1%81%20%D0%B2%D0%B0%D1%88%D0%B5%D0%B3%D0%BE%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BE%D0%B1%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD%20%D0%BA%D1%83%D1%80%D1%81%D0%B5%20%D0%A0%D0%BE%D0%B1%D0%BE%D1%82%D0%BE%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8" target="_blank" aria-label="WhatsApp">🟢</a>
 
 <!-- ===== QUIZ MODAL ===== -->
 <div class="qz" id="qz">
