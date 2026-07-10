@@ -75,7 +75,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .hero .grid{display:grid;grid-template-columns:1.08fr .92fr;gap:34px;align-items:center;padding:clamp(36px,6vw,58px) 0;position:relative;z-index:2}
 .hero .eye{background:rgba(255,255,255,.16);color:#eaf1ff}
 .hero h1{font-size:clamp(30px,5vw,46px);font-weight:900;line-height:1.06;margin:16px 0 14px}
-.hero h1 em{font-style:normal;color:#7CF0C0}
+.hero h1 em{font-style:normal;color:#FFC24B}
 .hero p.sub{color:#dbe6ff;font-size:clamp(16px,2vw,19px);line-height:1.5;max-width:520px}
 .hero .cta-row{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;align-items:center}
 .trust{display:flex;gap:10px 22px;flex-wrap:wrap;margin-top:28px}
@@ -211,6 +211,37 @@ footer a:hover{color:#fff}
 /* whatsapp float */
 .wafloat{position:fixed;right:18px;bottom:18px;z-index:40;width:56px;height:56px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
 
+/* CTA-баннеры (разные стили) */
+.ctaband{margin-top:32px;border-radius:20px;padding:clamp(24px,4vw,32px);text-align:center;position:relative;overflow:hidden}
+.ctaband h3{font-family:Montserrat;font-weight:900;font-size:clamp(19px,3.6vw,25px);line-height:1.15;margin-bottom:6px}
+.ctaband p{font-size:14.5px;margin-bottom:18px}
+.ctaband .btn{position:relative;z-index:2}
+.ctaband.blue{background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff}
+.ctaband.blue p{color:#dbe6ff}
+.ctaband.soft{background:#fff;border:2px dashed var(--sky)}
+.ctaband.soft h3{color:var(--ink)}.ctaband.soft p{color:var(--gray)}
+.ctaband.dark{background:linear-gradient(120deg,#0a1533,#20244a);color:#fff}
+.ctaband.dark p{color:#c7d0f5}
+@media(max-width:560px){.ctaband .btn{width:100%}}
+
+/* сравнение — карточки (адаптив, без гориз. прокрутки) */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.cmpc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:0 4px 16px rgba(4,44,247,.05)}
+.cmpq{font-family:Montserrat;font-weight:800;font-size:15px;margin-bottom:11px;display:flex;align-items:center;gap:9px}
+.cmpq .qi{font-size:18px}
+.cmprow{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:11px}
+.cmprow+.cmprow{margin-top:8px}
+.cmprow.off{background:#fdeceb}
+.cmprow.on{background:#e5f7ef}
+.cmprow .ci{width:24px;height:24px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#fff}
+.cmprow.off .ci{background:#e2604f}
+.cmprow.on .ci{background:var(--teal)}
+.cmprow .tx{display:flex;flex-direction:column;line-height:1.25}
+.cmprow .tx b{font-size:14px}
+.cmprow.off .tx b{color:#b3402f}.cmprow.on .tx b{color:var(--teal)}
+.cmprow .tx span{font-size:11px;color:var(--gray);font-weight:600}
+@media(max-width:640px){.cmp{grid-template-columns:1fr}}
+
 /* ===== QUIZ MODAL ===== */
 .qz{position:fixed;inset:0;z-index:100;background:rgba(10,14,40,.62);display:none;align-items:center;justify-content:center;padding:16px}
 .qz.on{display:flex}
@@ -284,6 +315,11 @@ footer a:hover{color:#fff}
     <img src="img/web/robot.jpg" alt="Робот и умные очки">
     <img src="img/web/smarthome.jpg" alt="Умный дом">
   </div>
+  <div class="ctaband blue">
+    <h3>Хотите, чтобы ребёнок собирал такие устройства?</h3>
+    <p>Покажем платформу и оборудование на бесплатном уроке.</p>
+    <button class="btn cta js-quiz">Записаться на пробный урок →</button>
+  </div>
 </div></section>
 
 <!-- WHAT -->
@@ -335,6 +371,11 @@ footer a:hover{color:#fff}
     <div class="pstat"><b>24</b><span>вебинара с экспертами CyberPack AI в год</span></div>
     <div class="pstat"><b>2</b><span>Science Project + портфолио для вузов</span></div>
   </div>
+  <div class="ctaband soft">
+    <h3>Готовы начать инженерный путь ребёнка?</h3>
+    <p>Определим уровень и подберём тариф — бесплатно, за 30 минут.</p>
+    <button class="btn js-quiz">Забронировать место</button>
+  </div>
 </div></section>
 
 <!-- PROOF -->
@@ -357,15 +398,31 @@ footer a:hover{color:#fff}
 <!-- VS -->
 <section><div class="wrap">
   <div class="shead"><span class="eye sk">Сравнение</span><h2 class="sec">Лучше офлайн-кружка</h2></div>
-  <div class="tblwrap"><table>
-    <tr><th>Критерий</th><th>Офлайн-кружок</th><th>RoLab Online</th></tr>
-    <tr><td>Цена в год</td><td class="no">840к – 1,44 млн ₸</td><td class="yes">от 150к ₸</td></tr>
-    <tr><td>Принтер</td><td class="no">общий, в очередь</td><td class="yes">свой, навсегда</td></tr>
-    <tr><td>Логистика</td><td class="no">возить в любую погоду</td><td class="yes">дома, когда удобно</td></tr>
-    <tr><td>Группа</td><td class="no">15–20 детей</td><td class="yes">до 10</td></tr>
-    <tr><td>Контроль</td><td class="no">не видно, что происходит</td><td class="yes">автоотчёты + куратор</td></tr>
-    <tr><td>Соревнования</td><td class="no">сам разбирайся</td><td class="yes">помогаем с заявкой</td></tr>
-  </table></div>
+  <div class="cmp">
+    <div class="cmpc"><div class="cmpq"><span class="qi">💰</span>Цена в год</div>
+      <div class="cmprow off"><span class="ci">✕</span><span class="tx"><b>840к – 1,44 млн ₸</b><span>офлайн-кружок</span></span></div>
+      <div class="cmprow on"><span class="ci">✓</span><span class="tx"><b>от 150к ₸</b><span>RoLab Online</span></span></div></div>
+    <div class="cmpc"><div class="cmpq"><span class="qi">🖨️</span>3D-принтер</div>
+      <div class="cmprow off"><span class="ci">✕</span><span class="tx"><b>Общий, в очередь</b><span>офлайн-кружок</span></span></div>
+      <div class="cmprow on"><span class="ci">✓</span><span class="tx"><b>Свой, остаётся навсегда</b><span>RoLab Online</span></span></div></div>
+    <div class="cmpc"><div class="cmpq"><span class="qi">🚗</span>Логистика</div>
+      <div class="cmprow off"><span class="ci">✕</span><span class="tx"><b>Возить в любую погоду</b><span>офлайн-кружок</span></span></div>
+      <div class="cmprow on"><span class="ci">✓</span><span class="tx"><b>Дома, когда удобно</b><span>RoLab Online</span></span></div></div>
+    <div class="cmpc"><div class="cmpq"><span class="qi">👥</span>Группа</div>
+      <div class="cmprow off"><span class="ci">✕</span><span class="tx"><b>15–20 детей</b><span>офлайн-кружок</span></span></div>
+      <div class="cmprow on"><span class="ci">✓</span><span class="tx"><b>До 10 детей</b><span>RoLab Online</span></span></div></div>
+    <div class="cmpc"><div class="cmpq"><span class="qi">📊</span>Контроль</div>
+      <div class="cmprow off"><span class="ci">✕</span><span class="tx"><b>Не видно, что происходит</b><span>офлайн-кружок</span></span></div>
+      <div class="cmprow on"><span class="ci">✓</span><span class="tx"><b>Автоотчёты + куратор</b><span>RoLab Online</span></span></div></div>
+    <div class="cmpc"><div class="cmpq"><span class="qi">🏆</span>Соревнования</div>
+      <div class="cmprow off"><span class="ci">✕</span><span class="tx"><b>Сам разбирайся</b><span>офлайн-кружок</span></span></div>
+      <div class="cmprow on"><span class="ci">✓</span><span class="tx"><b>Помогаем с заявкой</b><span>RoLab Online</span></span></div></div>
+  </div>
+  <div class="ctaband dark">
+    <h3>Дешевле кружка — и в разы больше пользы</h3>
+    <p>Попробуйте формат без вложений: первый урок бесплатно.</p>
+    <button class="btn cta js-quiz" style="animation:none">Попробовать бесплатно →</button>
+  </div>
 </div></section>
 
 <!-- TARIFFS -->
