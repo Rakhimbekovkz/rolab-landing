@@ -86,9 +86,13 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 
 /* pain */
 .pain{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
-.painc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:15.5px;font-weight:500;display:flex;gap:12px;align-items:flex-start;text-align:left;box-shadow:0 3px 14px rgba(20,30,80,.04)}
-.painc .x{color:var(--rose);font-size:18px;font-weight:900;flex:none}
-.bridge{margin-top:24px;background:linear-gradient(120deg,var(--ink),#20244a);color:#fff;border-radius:16px;padding:20px 24px;font-size:clamp(16px,2.4vw,19px);font-weight:600;text-align:center}
+.painc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:15.5px;font-weight:500;display:flex;gap:14px;align-items:center;text-align:left;box-shadow:0 3px 14px rgba(20,30,80,.05)}
+.painc .pi{width:42px;height:42px;flex:none;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px}
+.painc.c1{border-left:4px solid var(--blue)}   .painc.c1 .pi{background:#e6ecff}
+.painc.c2{border-left:4px solid var(--violet)} .painc.c2 .pi{background:#efeaff}
+.painc.c3{border-left:4px solid var(--teal)}   .painc.c3 .pi{background:#e1f7ef}
+.painc.c4{border-left:4px solid var(--amber)}  .painc.c4 .pi{background:#fff3dd}
+.bridge{margin-top:24px;background:linear-gradient(120deg,var(--blue),var(--violet) 70%,var(--sky));color:#fff;border-radius:16px;padding:22px 24px;font-size:clamp(16px,2.4vw,19px);font-weight:700;text-align:center;box-shadow:0 12px 30px rgba(4,44,247,.18)}
 @media(max-width:640px){.pain{grid-template-columns:1fr}}
 
 /* formula — ОДИН красивый блок с градиентной обводкой */
@@ -243,14 +247,14 @@ footer a:hover{color:#fff}
 
 <!-- PAIN -->
 <section><div class="wrap">
-  <div class="shead"><span class="eye rs">Знакомо?</span><h2 class="sec">Если хоть одно — вам к нам</h2></div>
+  <div class="shead"><h2 class="sec">Если вам знакомо это — приходите к нам</h2></div>
   <div class="pain">
-    <div class="painc"><span class="x">✕</span>Ребёнок часами в телефоне, а увлечь нечем</div>
-    <div class="painc"><span class="x">✕</span>Хотите готовить его к профессиям будущего</div>
-    <div class="painc"><span class="x">✕</span>Кружки далеко, дорого и непонятно, что там</div>
-    <div class="painc"><span class="x">✕</span>Ребёнок способный — но негде раскрыться</div>
+    <div class="painc c1"><span class="pi">📱</span>Ребёнок часами в телефоне, а увлечь нечем</div>
+    <div class="painc c2"><span class="pi">🚀</span>Хотите готовить его к профессиям будущего</div>
+    <div class="painc c3"><span class="pi">📍</span>Кружки далеко, дорого и непонятно, что там</div>
+    <div class="painc c4"><span class="pi">💡</span>Ребёнок способный — но негде раскрыться</div>
   </div>
-  <div class="bridge">Есть формат, где ребёнок сам создаёт устройства — и это увлекает сильнее игр</div>
+  <div class="bridge">У нас есть формат, где ребёнок сам создаёт устройства — и это увлекает сильнее игр</div>
 </div></section>
 
 <!-- SOLUTION -->
