@@ -31,7 +31,9 @@ a{text-decoration:none;color:inherit}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
 .center{text-align:center}
 section{padding:clamp(46px,7vw,68px) 0}
-section.tint{background:linear-gradient(180deg,#f5f8ff,#eef2ff)}
+section.tint{background:linear-gradient(180deg,#eaf0ff,#dde7ff)}
+section.tint-v{background:linear-gradient(180deg,#f1ecff,#e6dbff)}
+section.tint-t{background:linear-gradient(180deg,#e6f9f1,#d5f2e6)}
 
 /* section header — единая красивая иерархия */
 .shead{text-align:center;max-width:720px;margin:0 auto 8px}
@@ -127,16 +129,16 @@ header.hidefade{opacity:.4}
 
 /* program */
 .tracks{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
-.track{background:#fff;border:2px solid var(--line);border-radius:16px;padding:22px;cursor:pointer;transition:.15s;position:relative}
-.track:hover{border-color:var(--sky)}
-.track.on{border-color:var(--blue);box-shadow:0 12px 30px rgba(4,44,247,.16);background:linear-gradient(180deg,#fff,#f5f8ff)}
-.track .pick{margin-top:12px;font-family:Montserrat;font-weight:800;font-size:12px;color:var(--gray);display:flex;align-items:center;gap:6px}
-.track.on .pick{color:var(--blue)}
+.track{border:2px solid transparent;border-radius:18px;padding:24px;cursor:pointer;position:relative;color:#fff;overflow:hidden;background-size:200% 200%;transition:transform .2s,box-shadow .2s;box-shadow:0 12px 28px rgba(4,44,247,.16)}
+.track[data-trk="junior"]{background-image:linear-gradient(130deg,#042CF7,#2f6bff 45%,#53B4FF 85%);animation:shimmer 9s ease-in-out infinite}
+.track[data-trk="expert"]{background-image:linear-gradient(130deg,#4a1fc7,#7C5CFC 45%,#b39cff 85%);animation:shimmer 9s ease-in-out infinite}
+@keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.track:hover{transform:translateY(-2px)}
+.track.on{transform:translateY(-3px);box-shadow:0 18px 40px rgba(0,0,0,.28);outline:3px solid rgba(255,255,255,.9);outline-offset:-3px}
+.track .tb{display:inline-block;font-family:Montserrat;font-weight:800;font-size:13px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,.24);color:#fff;margin-bottom:12px}
+.track p{font-size:14.5px;color:rgba(255,255,255,.94);line-height:1.5}
+.track .pick{margin-top:14px;font-family:Montserrat;font-weight:800;font-size:12.5px;color:#fff;display:flex;align-items:center;gap:6px}
 .trkpane[hidden]{display:none}
-.track .tb{display:inline-block;font-family:Montserrat;font-weight:800;font-size:13px;padding:6px 14px;border-radius:20px;color:#fff;margin-bottom:12px}
-.tb.b{background:linear-gradient(135deg,var(--blue),var(--sky))}
-.tb.v{background:linear-gradient(135deg,var(--violet),#a78bfa)}
-.track p{font-size:14px;color:var(--gray);line-height:1.5}
 @media(max-width:640px){.tracks{grid-template-columns:1fr}}
 .modtitle{text-align:center;margin-top:30px;font-family:Montserrat;font-weight:800;color:var(--violet);font-size:13px;text-transform:uppercase;letter-spacing:.6px}
 .modgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:12px;margin-top:16px}
@@ -393,7 +395,7 @@ html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 </div></section>
 
 <!-- HOW -->
-<section class="tint"><div class="wrap">
+<section class="tint-v"><div class="wrap">
   <div class="shead"><span class="eye t">Как учимся</span><h2 class="sec">3 дня в неделю — под ритм ребёнка</h2></div>
   <div class="steps">
     <div class="step"><div class="n">1</div><h3>День печати</h3><p>Выбирает проект и отправляет на принтер</p></div>
@@ -459,7 +461,7 @@ html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 </div></section>
 
 <!-- PROOF -->
-<section class="tint"><div class="wrap">
+<section class="tint-t"><div class="wrap">
   <div class="shead"><span class="eye am">Доказательства</span><h2 class="sec">Ученики побеждают в мире</h2></div>
   <div class="stats">
     <div class="stat"><div class="big">7 из 11</div><div class="lb">команд — чемпионы FIRST</div></div>
@@ -552,7 +554,7 @@ html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 </div></section>
 
 <!-- FAQ -->
-<section class="tint"><div class="wrap">
+<section class="tint-v"><div class="wrap">
   <div class="shead"><span class="eye t">Вопросы</span><h2 class="sec">Отвечаем честно</h2></div>
   <div class="faq">
     <details class="fq"><summary>Дорого?</summary><div class="a">Принтер навсегда + наставник + соревнования за год. Дешевле кружка, где ничего не остаётся. Есть рассрочка Kaspi от 37 500 тг/мес.</div></details>
