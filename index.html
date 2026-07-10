@@ -257,6 +257,30 @@ footer a:hover{color:#fff}
 .cmprow .tx span{font-size:11px;color:var(--gray);font-weight:600}
 @media(max-width:640px){.cmp{grid-template-columns:1fr}}
 
+/* ===== мобильная оптимизация ===== */
+h2.sec,.hero h1{text-wrap:balance}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+@media(max-width:560px){
+  section{padding:40px 0}
+  .wrap{padding:0 16px}
+  .hero .cta-row{flex-direction:column;align-items:stretch;gap:10px}
+  .hero .cta-row .btn{width:100%}
+  .btn.cta{font-size:17px;padding:17px 22px}
+  .tarc .btn,.final .btn{width:100%}
+  .tarc.hot{transform:none}
+  .kaspi{flex-direction:column;text-align:center;align-items:stretch;gap:14px;padding:22px}
+  .kaspi .sp{display:none}.kaspi .btn{width:100%}
+  .tm{padding:20px}
+  .painc{font-size:15px}
+  .fq summary{font-size:15px}
+  .reassure{justify-content:center}
+  .modtitle{margin-top:24px}
+  .wafloat{width:52px;height:52px;font-size:26px;right:14px;bottom:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+
 /* ===== QUIZ MODAL ===== */
 .qz{position:fixed;inset:0;z-index:100;background:rgba(10,14,40,.62);display:none;align-items:center;justify-content:center;padding:16px}
 .qz.on{display:flex}
@@ -297,7 +321,7 @@ footer a:hover{color:#fff}
     <div class="cta-row"><button class="btn cta js-quiz">Записаться на пробный урок →</button><a class="btn wa" href="https://wa.me/77070555666?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BF%D0%B8%D1%88%D1%83%20%D1%81%20%D0%B2%D0%B0%D1%88%D0%B5%D0%B3%D0%BE%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BE%D0%B1%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD%20%D0%BA%D1%83%D1%80%D1%81%D0%B5%20%D0%A0%D0%BE%D0%B1%D0%BE%D1%82%D0%BE%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8" target="_blank">Написать на WhatsApp</a></div>
     <div class="reassure"><span>✓ Первый урок бесплатно и без обязательств</span></div>
   </div>
-  <div class="heroimg"><img class="hshot" src="img/web/hero.jpg" alt="Ребёнок в восторге у 3D-принтера"></div>
+  <div class="heroimg"><img class="hshot" fetchpriority="high" src="img/web/hero.jpg" alt="Ребёнок в восторге у 3D-принтера"></div>
 </div></div></div>
 
 <!-- PAIN -->
@@ -323,12 +347,12 @@ footer a:hover{color:#fff}
     <span class="it">Куратор</span>
   </div>
   <p class="subh" style="margin-top:20px">Ребёнок печатает детали и собирает реальные устройства. За год — 60 проектов и участие в соревнованиях. Принтер остаётся навсегда.</p>
-  <img class="shot" style="margin-top:24px" src="img/web/solution.jpg" alt="Ребёнок собирает устройства: умный дом, пианино, робот">
+  <img class="shot" loading="lazy" decoding="async" style="margin-top:24px" src="img/web/solution.jpg" alt="Ребёнок собирает устройства: умный дом, пианино, робот">
   <div class="gcap">Реальные проекты учеников</div>
   <div class="gallery">
-    <img src="img/web/piano.jpg" alt="Робо-пианино">
-    <img src="img/web/robot.jpg" alt="Робот и умные очки">
-    <img src="img/web/smarthome.jpg" alt="Умный дом">
+    <img loading="lazy" decoding="async" src="img/web/piano.jpg" alt="Робо-пианино">
+    <img loading="lazy" decoding="async" src="img/web/robot.jpg" alt="Робот и умные очки">
+    <img loading="lazy" decoding="async" src="img/web/smarthome.jpg" alt="Умный дом">
   </div>
   <div class="ctaband blue">
     <h3>Хотите, чтобы ребёнок собирал такие устройства?</h3>
@@ -424,9 +448,9 @@ footer a:hover{color:#fff}
     <div class="stat"><div class="big">4+</div><div class="lb">соревнования в год</div></div>
   </div>
   <div class="reviews">
-    <figure class="rev"><img src="img/web/trophy.jpg" alt="Ученик с кубком на соревновании"><figcaption>Победы на соревнованиях</figcaption></figure>
-    <figure class="rev"><img src="img/web/lab.jpg" alt="Домашняя инженерная лаборатория"><figcaption>Лаборатория у ребёнка дома</figcaption></figure>
-    <figure class="rev"><img src="img/web/printer.jpg" alt="3D-принтер Bambu Lab печатает деталь"><figcaption>Настоящее оборудование Bambu Lab</figcaption></figure>
+    <figure class="rev"><img loading="lazy" decoding="async" src="img/web/trophy.jpg" alt="Ученик с кубком на соревновании"><figcaption>Победы на соревнованиях</figcaption></figure>
+    <figure class="rev"><img loading="lazy" decoding="async" src="img/web/lab.jpg" alt="Домашняя инженерная лаборатория"><figcaption>Лаборатория у ребёнка дома</figcaption></figure>
+    <figure class="rev"><img loading="lazy" decoding="async" src="img/web/printer.jpg" alt="3D-принтер Bambu Lab печатает деталь"><figcaption>Настоящее оборудование Bambu Lab</figcaption></figure>
   </div>
   <p class="subh center" style="margin-top:14px;font-size:13px">NASA Space Challenge · World Robotics Olympiad · ICRC</p>
 </div></section>
@@ -476,28 +500,28 @@ footer a:hover{color:#fff}
 <section><div class="wrap">
   <div class="shead"><span class="eye v">Команда</span><h2 class="sec">Вашего ребёнка учат практики и чемпионы</h2></div>
   <div class="team">
-    <div class="tm"><div class="av a1"><img src="img/web/sabyrzhan.jpg" alt="Сабыржан Мустафин"></div><h3>Сабыржан Мустафин</h3><div class="role">Основатель и CEO ROLAB и CyberPack AI</div>
+    <div class="tm"><div class="av a1"><img loading="lazy" decoding="async" src="img/web/sabyrzhan.jpg" alt="Сабыржан Мустафин"></div><h3>Сабыржан Мустафин</h3><div class="role">Основатель и CEO ROLAB и CyberPack AI</div>
       <ul>
         <li>Победитель Global EdTech Startup Awards (GESA) Eurasia</li>
         <li>Грант Павла Дурова $25 000, привлёк $200k в ROLAB</li>
         <li>Подготовил 100+ призёров соревнований по робототехнике</li>
         <li>20+ учеников получили образовательные гранты</li>
       </ul></div>
-    <div class="tm"><div class="av a2"><img src="img/web/asan.jpg" alt="Асан Хасанов"></div><h3>Асан Хасанов</h3><div class="role">Технический директор (CTO) CyberPack AI</div>
+    <div class="tm"><div class="av a2"><img loading="lazy" decoding="async" src="img/web/asan.jpg" alt="Асан Хасанов"></div><h3>Асан Хасанов</h3><div class="role">Технический директор (CTO) CyberPack AI</div>
       <ul>
         <li>Стажировки в Германии и Японии — разработка ИИ-дронов</li>
         <li>Наставник олимпиадных команд FTC, FGC, FRC</li>
         <li>Преподаватель 3D-моделирования в МГТУ им. Баумана</li>
         <li>Эксперт по 3D-печати Bambu Lab и embedded-системам</li>
       </ul></div>
-    <div class="tm"><div class="av a3"><img src="img/web/adilet.jpg" alt="Әділет Саду"></div><h3>Әділет Саду</h3><div class="role">Hardware-инженер · ментор по робототехнике</div>
+    <div class="tm"><div class="av a3"><img loading="lazy" decoding="async" src="img/web/adilet.jpg" alt="Әділет Саду"></div><h3>Әділет Саду</h3><div class="role">Hardware-инженер · ментор по робототехнике</div>
       <ul>
         <li>5+ лет в образовательной робототехнике</li>
         <li>Ученики: 2-е место WRO, серебро «Дарын» 2024–2025</li>
         <li>Готовил проекты к защите перед Президентом РК</li>
         <li>Победитель мейкатонов по ассистивным технологиям</li>
       </ul></div>
-    <div class="tm"><div class="av a4"><img src="img/web/yernar.jpg" alt="Ергали Ернар"></div><h3>Ергали Ернар</h3><div class="role">Преподаватель робототехники · ментор олимпиадных команд</div>
+    <div class="tm"><div class="av a4"><img loading="lazy" decoding="async" src="img/web/yernar.jpg" alt="Ергали Ернар"></div><h3>Ергали Ернар</h3><div class="role">Преподаватель робототехники · ментор олимпиадных команд</div>
       <ul>
         <li>Главный тренер команд FIRST LEGO League — финалы в Сингапуре и Макао</li>
         <li>Готовит сборную к международному финалу в Пекине (2026)</li>
