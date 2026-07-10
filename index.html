@@ -147,7 +147,16 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .stat .big{font-size:clamp(24px,4vw,30px);font-weight:900}.stat .lb{font-size:12px;color:var(--gray);margin-top:4px}
 .stat:nth-child(1) .big{color:var(--blue)}.stat:nth-child(2) .big{color:var(--violet)}
 .stat:nth-child(3) .big{color:var(--teal)}.stat:nth-child(4) .big{color:var(--amber)}
-.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:18px}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px}
+.hshot{width:100%;border-radius:18px;display:block;box-shadow:0 22px 50px rgba(0,0,0,.30)}
+.shot{width:100%;border-radius:16px;display:block;box-shadow:0 12px 30px rgba(4,44,247,.12)}
+.gcap{margin-top:22px;font-family:Montserrat;font-weight:800;color:var(--violet);font-size:13px;text-transform:uppercase;letter-spacing:.6px;text-align:center}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;background:#fff;border:1px solid var(--line)}
+.rev{margin:0}
+.rev img{width:100%;aspect-ratio:5/3;object-fit:cover;border-radius:14px;display:block;box-shadow:0 8px 22px rgba(4,44,247,.10)}
+.rev figcaption{font-size:13px;color:var(--gray);margin-top:9px;text-align:center;font-weight:600}
+@media(max-width:640px){.gallery{grid-template-columns:1fr 1fr}}
 
 /* table */
 .tblwrap{overflow-x:auto;margin-top:28px}
@@ -242,7 +251,7 @@ footer a:hover{color:#fff}
     <div class="cta-row"><button class="btn cta js-quiz">Записаться на пробный урок →</button><a class="btn wa" href="https://wa.me/77070555666?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BF%D0%B8%D1%88%D1%83%20%D1%81%20%D0%B2%D0%B0%D1%88%D0%B5%D0%B3%D0%BE%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D0%BE%D0%B1%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD%20%D0%BA%D1%83%D1%80%D1%81%D0%B5%20%D0%A0%D0%BE%D0%B1%D0%BE%D1%82%D0%BE%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8" target="_blank">Написать на WhatsApp</a></div>
     <div class="reassure"><span>✓ Первый урок бесплатно и без обязательств</span></div>
   </div>
-  <div class="heroimg"><div class="ph"><span class="i">📷</span><span class="l">ФОТО: казахский мальчик ~10 лет у 3D-принтера, эмоция восторга</span></div></div>
+  <div class="heroimg"><img class="hshot" src="img/web/hero.jpg" alt="Ребёнок в восторге у 3D-принтера"></div>
 </div></div></div>
 
 <!-- PAIN -->
@@ -268,7 +277,13 @@ footer a:hover{color:#fff}
     <span class="it">Куратор</span>
   </div>
   <p class="subh" style="margin-top:20px">Ребёнок печатает детали и собирает реальные устройства. За год — 60 проектов и участие в соревнованиях. Принтер остаётся навсегда.</p>
-  <div style="margin-top:24px" class="ph"><span class="i">📷</span><span class="l">ФОТО/КОЛЛАЖ: устройства учеников (умный дом, пианино) + ребёнок-казах за работой</span></div>
+  <img class="shot" style="margin-top:24px" src="img/web/solution.jpg" alt="Ребёнок собирает устройства: умный дом, пианино, робот">
+  <div class="gcap">Реальные проекты учеников</div>
+  <div class="gallery">
+    <img src="img/web/piano.jpg" alt="Робо-пианино">
+    <img src="img/web/robot.jpg" alt="Робот и умные очки">
+    <img src="img/web/smarthome.jpg" alt="Умный дом">
+  </div>
 </div></section>
 
 <!-- WHAT -->
@@ -332,9 +347,9 @@ footer a:hover{color:#fff}
     <div class="stat"><div class="big">4+</div><div class="lb">соревнования в год</div></div>
   </div>
   <div class="reviews">
-    <div class="ph"><span class="i">🎥</span><span class="l">ВИДЕО-ОТЗЫВ мамы (казашка) + фото ребёнка</span></div>
-    <div class="ph"><span class="i">💬</span><span class="l">ОТЗЫВ родителя (скрин WhatsApp) + фото проекта</span></div>
-    <div class="ph"><span class="i">📷</span><span class="l">ФОТО ученика-казаха с кубком на соревновании</span></div>
+    <figure class="rev"><img src="img/web/trophy.jpg" alt="Ученик с кубком на соревновании"><figcaption>Победы на соревнованиях</figcaption></figure>
+    <figure class="rev"><img src="img/web/lab.jpg" alt="Домашняя инженерная лаборатория"><figcaption>Лаборатория у ребёнка дома</figcaption></figure>
+    <figure class="rev"><img src="img/web/printer.jpg" alt="3D-принтер Bambu Lab печатает деталь"><figcaption>Настоящее оборудование Bambu Lab</figcaption></figure>
   </div>
   <p class="subh center" style="margin-top:14px;font-size:13px">NASA Space Challenge · World Robotics Olympiad · ICRC</p>
 </div></section>
