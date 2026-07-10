@@ -123,8 +123,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 
 /* program */
 .tracks{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
-.track{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
-.track.hot{border:2px solid var(--violet);box-shadow:0 12px 30px rgba(109,92,231,.15)}
+.track{background:#fff;border:2px solid var(--line);border-radius:16px;padding:22px;cursor:pointer;transition:.15s;position:relative}
+.track:hover{border-color:var(--sky)}
+.track.on{border-color:var(--blue);box-shadow:0 12px 30px rgba(4,44,247,.16);background:linear-gradient(180deg,#fff,#f5f8ff)}
+.track .pick{margin-top:12px;font-family:Montserrat;font-weight:800;font-size:12px;color:var(--gray);display:flex;align-items:center;gap:6px}
+.track.on .pick{color:var(--blue)}
+.trkpane[hidden]{display:none}
 .track .tb{display:inline-block;font-family:Montserrat;font-weight:800;font-size:13px;padding:6px 14px;border-radius:20px;color:#fff;margin-bottom:12px}
 .tb.b{background:linear-gradient(135deg,var(--blue),var(--sky))}
 .tb.v{background:linear-gradient(135deg,var(--violet),#a78bfa)}
@@ -357,25 +361,46 @@ footer a:hover{color:#fff}
 
 <!-- PROGRAM -->
 <section><div class="wrap">
-  <div class="shead"><span class="eye v">Программа</span><h2 class="sec">12 модулей за год — от алгоритмов до AI-агентов</h2><p class="subh">Адаптируется под возраст: свой трек для 1–4 и для 5–11 классов</p></div>
+  <div class="shead"><span class="eye v">Программа</span><h2 class="sec">12 модулей за год — от алгоритмов до AI-агентов</h2><p class="subh">Нажмите на возраст ребёнка — покажем программу именно для него</p></div>
   <div class="tracks">
-    <div class="track"><span class="tb b">Junior · 1–4 класс</span><p>Мягкий вход в инженерию: алгоритмическое мышление, первые 3D-модели и сборка простых устройств в игровом формате.</p></div>
-    <div class="track hot"><span class="tb v">Expert · 5–11 класс</span><p>Полный инженерный трек: 3D-печать, Fusion 360, электроника, AI-инструменты, свои AI-агенты и защита научного проекта.</p></div>
+    <div class="track trk on" data-trk="junior"><span class="tb b">Junior · 1–4 класс</span><p>Мягкий вход в инженерию: алгоритмы, первые 3D-модели, простые устройства и знакомство с ИИ — в игровом формате.</p><div class="pick">Смотреть программу ↓</div></div>
+    <div class="track trk" data-trk="expert"><span class="tb v">Expert · 5–11 класс</span><p>Полный инженерный трек: 3D-печать, Fusion 360, электроника, AI-инструменты, свои AI-агенты и защита научного проекта.</p><div class="pick">Смотреть программу →</div></div>
   </div>
-  <div class="modtitle">Маршрут Expert · 5–11 класс</div>
-  <div class="modgrid">
-    <div class="mod"><span class="mn">1</span><span class="mt">Алгоритмы и блочное программирование</span></div>
-    <div class="mod"><span class="mn">2</span><span class="mt">Основы 3D-печати</span></div>
-    <div class="mod"><span class="mn">3</span><span class="mt">3D-моделирование в Tinkercad</span></div>
-    <div class="mod"><span class="mn">4</span><span class="mt">Инженерное проектирование в Fusion 360 + AI</span></div>
-    <div class="mod"><span class="mn">5</span><span class="mt">Электроника в Tinkercad</span></div>
-    <div class="mod"><span class="mn">6</span><span class="mt">Контрольный инженерный проект</span></div>
-    <div class="mod"><span class="mn">7</span><span class="mt">AI Tools — работа с нейросетями</span></div>
-    <div class="mod"><span class="mn">8</span><span class="mt">Prompt Engineering</span></div>
-    <div class="mod"><span class="mn">9</span><span class="mt">AI Agents — свои AI-помощники</span></div>
-    <div class="mod"><span class="mn">10</span><span class="mt">UI/UX Design & Pitching</span></div>
-    <div class="mod"><span class="mn">11</span><span class="mt">Science Project</span></div>
-    <div class="mod"><span class="mn">12</span><span class="mt">Финальный Science Project + защита</span></div>
+
+  <div class="trkpane" data-pane="junior">
+    <div class="modtitle">Маршрут Junior · 1–4 класс</div>
+    <div class="modgrid">
+      <div class="mod"><span class="mn">1</span><span class="mt">Знакомство с роботами и алгоритмы (в игре)</span></div>
+      <div class="mod"><span class="mn">2</span><span class="mt">Первые шаги в 3D-печати</span></div>
+      <div class="mod"><span class="mn">3</span><span class="mt">3D-моделирование в Tinkercad (базово)</span></div>
+      <div class="mod"><span class="mn">4</span><span class="mt">Сборка простых механизмов и конструкций</span></div>
+      <div class="mod"><span class="mn">5</span><span class="mt">Азбука электроники: свет и кнопки</span></div>
+      <div class="mod"><span class="mn">6</span><span class="mt">Датчики вокруг нас: свет, звук, расстояние</span></div>
+      <div class="mod"><span class="mn">7</span><span class="mt">Мой первый робот на моторах</span></div>
+      <div class="mod"><span class="mn">8</span><span class="mt">Введение в ИИ: как думают нейросети</span></div>
+      <div class="mod"><span class="mn">9</span><span class="mt">Программирование в блоках (Scratch-стиль)</span></div>
+      <div class="mod"><span class="mn">10</span><span class="mt">Творческий проект своими руками</span></div>
+      <div class="mod"><span class="mn">11</span><span class="mt">Мини Science Project</span></div>
+      <div class="mod"><span class="mn">12</span><span class="mt">Защита проекта + первое портфолио</span></div>
+    </div>
+  </div>
+
+  <div class="trkpane" data-pane="expert" hidden>
+    <div class="modtitle">Маршрут Expert · 5–11 класс</div>
+    <div class="modgrid">
+      <div class="mod"><span class="mn">1</span><span class="mt">Алгоритмы и блочное программирование</span></div>
+      <div class="mod"><span class="mn">2</span><span class="mt">Основы 3D-печати</span></div>
+      <div class="mod"><span class="mn">3</span><span class="mt">3D-моделирование в Tinkercad</span></div>
+      <div class="mod"><span class="mn">4</span><span class="mt">Инженерное проектирование в Fusion 360 + AI</span></div>
+      <div class="mod"><span class="mn">5</span><span class="mt">Электроника в Tinkercad</span></div>
+      <div class="mod"><span class="mn">6</span><span class="mt">Контрольный инженерный проект</span></div>
+      <div class="mod"><span class="mn">7</span><span class="mt">AI Tools — работа с нейросетями</span></div>
+      <div class="mod"><span class="mn">8</span><span class="mt">Prompt Engineering</span></div>
+      <div class="mod"><span class="mn">9</span><span class="mt">AI Agents — свои AI-помощники</span></div>
+      <div class="mod"><span class="mn">10</span><span class="mt">UI/UX Design & Pitching</span></div>
+      <div class="mod"><span class="mn">11</span><span class="mt">Science Project</span></div>
+      <div class="mod"><span class="mn">12</span><span class="mt">Финальный Science Project + защита</span></div>
+    </div>
   </div>
   <div class="pstats">
     <div class="pstat"><b>12</b><span>модулей за год</span></div>
@@ -596,6 +621,13 @@ function submitLead(){
   }
   go(6);
 }
+
+// переключение треков программы (Junior / Expert)
+document.querySelectorAll('.trk').forEach(t=>t.addEventListener('click',()=>{
+  const k=t.dataset.trk;
+  document.querySelectorAll('.trk').forEach(x=>x.classList.toggle('on',x===t));
+  document.querySelectorAll('.trkpane').forEach(p=>{p.hidden = p.dataset.pane!==k;});
+}));
 </script>
 </body>
 </html>
