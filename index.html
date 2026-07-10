@@ -66,6 +66,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .lg .m{width:36px;height:36px;display:flex;align-items:center;justify-content:center}
 .lg .m svg{width:100%;height:100%;display:block}
 .nav .sp{margin-left:auto}.nav .btn{padding:11px 20px;font-size:14px}
+header{transition:opacity .35s ease}
+header.hidefade{opacity:.4}
+.navarrow{display:flex;align-items:center;color:var(--blue);margin-right:10px;animation:arrowpulse 1.6s ease-in-out infinite;flex:none}
+@keyframes arrowpulse{0%,100%{transform:translateX(0);opacity:.5}50%{transform:translateX(8px);opacity:1}}
 @media(max-width:560px){.nav .lg span.t{display:none}}
 
 /* hero */
@@ -161,6 +165,16 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .rev img{width:100%;aspect-ratio:5/3;object-fit:cover;border-radius:14px;display:block;box-shadow:0 8px 22px rgba(4,44,247,.10)}
 .rev figcaption{font-size:13px;color:var(--gray);margin-top:9px;text-align:center;font-weight:600}
 @media(max-width:640px){.gallery{grid-template-columns:1fr 1fr}}
+/* карусель проектов */
+.carousel{position:relative;max-width:520px;margin:14px auto 0;border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 8px 24px rgba(4,44,247,.08)}
+.cartrack{display:flex;transition:transform .35s ease;touch-action:pan-y}
+.cartrack img{width:100%;flex:none;aspect-ratio:1/1;object-fit:cover;display:block}
+.carbtn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.92);box-shadow:0 4px 14px rgba(0,0,0,.18);color:var(--blue);font-size:26px;font-weight:900;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;padding-bottom:3px}
+.carbtn:hover{background:#fff}
+.carbtn.prev{left:10px}.carbtn.next{right:10px}
+.cardots{position:absolute;bottom:12px;left:0;right:0;display:flex;gap:8px;justify-content:center;z-index:2}
+.cardots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.7);box-shadow:0 1px 3px rgba(0,0,0,.25);transition:.2s;cursor:pointer}
+.cardots i.on{background:var(--blue);width:22px;border-radius:5px}
 
 /* table */
 .tblwrap{overflow-x:auto;margin-top:28px}
@@ -309,6 +323,7 @@ html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 <header><div class="wrap nav">
   <div class="lg"><span class="m"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="50" fill="#042CF7"/><g fill="#fff"><rect x="37" y="25" width="9" height="50" rx="2.5"/><rect x="54" y="25" width="9" height="50" rx="2.5"/><rect x="25" y="40" width="50" height="9" rx="2.5"/><rect x="25" y="57" width="50" height="9" rx="2.5"/></g></svg></span><span class="t">Shanyraq Study x RoLab</span></div>
   <span class="sp"></span>
+  <div class="navarrow" aria-hidden="true"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h13M12 6l6 6-6 6"/></svg></div>
   <button class="btn js-quiz">Бесплатный урок</button>
 </div></header>
 
@@ -349,10 +364,15 @@ html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   <p class="subh" style="margin-top:20px">Ребёнок печатает детали и собирает реальные устройства. За год — 60 проектов и участие в соревнованиях. Принтер остаётся навсегда.</p>
   <img class="shot" loading="lazy" decoding="async" style="margin-top:24px" src="img/web/solution.jpg" alt="Ребёнок собирает устройства: умный дом, пианино, робот">
   <div class="gcap">Реальные проекты учеников</div>
-  <div class="gallery">
-    <img loading="lazy" decoding="async" src="img/web/piano.jpg" alt="Робо-пианино">
-    <img loading="lazy" decoding="async" src="img/web/robot.jpg" alt="Робот и умные очки">
-    <img loading="lazy" decoding="async" src="img/web/smarthome.jpg" alt="Умный дом">
+  <div class="carousel" id="projCar">
+    <div class="cartrack">
+      <img loading="lazy" decoding="async" src="img/web/piano.jpg" alt="Робо-пианино">
+      <img loading="lazy" decoding="async" src="img/web/robot.jpg" alt="Робот и умные очки">
+      <img loading="lazy" decoding="async" src="img/web/smarthome.jpg" alt="Умный дом">
+    </div>
+    <button class="carbtn prev" aria-label="Предыдущее фото">‹</button>
+    <button class="carbtn next" aria-label="Следующее фото">›</button>
+    <div class="cardots"><i class="on"></i><i></i><i></i></div>
   </div>
   <div class="ctaband blue">
     <h3>Хотите, чтобы ребёнок собирал такие устройства?</h3>
@@ -652,6 +672,38 @@ document.querySelectorAll('.trk').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.trk').forEach(x=>x.classList.toggle('on',x===t));
   document.querySelectorAll('.trkpane').forEach(p=>{p.hidden = p.dataset.pane!==k;});
 }));
+
+// шапка: прозрачнее при прокрутке вниз, возвращается при остановке/прокрутке вверх
+(function(){
+  const hdr=document.querySelector('header'); let last=0,t;
+  window.addEventListener('scroll',()=>{
+    const y=window.pageYOffset||document.documentElement.scrollTop;
+    if(y>last && y>90) hdr.classList.add('hidefade'); else hdr.classList.remove('hidefade');
+    last=y; clearTimeout(t); t=setTimeout(()=>hdr.classList.remove('hidefade'),220);
+  },{passive:true});
+})();
+
+// карусель проектов: стрелки, точки, свайп
+(function(){
+  const car=document.getElementById('projCar'); if(!car) return;
+  const track=car.querySelector('.cartrack');
+  const n=track.children.length;
+  const dots=car.querySelectorAll('.cardots i');
+  let idx=0;
+  function go(i){idx=(i+n)%n;track.style.transform='translateX('+(-idx*100)+'%)';dots.forEach((d,j)=>d.classList.toggle('on',j===idx));}
+  car.querySelector('.next').addEventListener('click',()=>go(idx+1));
+  car.querySelector('.prev').addEventListener('click',()=>go(idx-1));
+  dots.forEach((d,j)=>d.addEventListener('click',()=>go(j)));
+  let x0=null;
+  track.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;},{passive:true});
+  track.addEventListener('touchend',e=>{
+    if(x0===null) return;
+    const dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>40) go(dx<0?idx+1:idx-1);
+    x0=null;
+  },{passive:true});
+  go(0);
+})();
 </script>
 </body>
 </html>
